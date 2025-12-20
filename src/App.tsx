@@ -28,15 +28,17 @@ function App() {
 
     return (
     <div className={`main-container ${mode === 'dark' ? 'dark-mode' : 'light-mode'}`}>
-        <Navigation parentToChild={{mode}} modeChange={handleModeChange}/>
-        <FadeIn transitionDuration={700}>
-            <Main/>
-            <Expertise/>
-            <Timeline/>
-            <Project/>
-            <Contact/>
-        </FadeIn>
-        <Footer />
+        <div className="scrollable-content">
+            <Navigation parentToChild={{mode}} modeChange={handleModeChange}/>
+            <FadeIn transitionDuration={700}>
+                <Main/>
+                <Expertise/>
+                <Timeline/>
+                <Project/>
+                <Contact/>
+            </FadeIn>
+            <Footer />
+        </div>
     </div>
     );
 }
