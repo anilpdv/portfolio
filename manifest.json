@@ -1,0 +1,20 @@
+{
+  "short_name": "Anil Palli",
+  "name": "Anil Palli - Full Stack Developer",
+  "icons": [
+    {
+      "src": "profile-pic.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "profile-pic.jpg",
+      "type": "image/jpeg",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#5000ca",
+  "background_color": "#0a0a0a"
+}
