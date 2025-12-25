@@ -1,15 +1,70 @@
+@import './variables';
+
 footer {
     text-align: center;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding: $spacing-xxl $container-padding-desktop;
+    border-top: 1px solid $purple-primary-30;
+
+    div {
+        display: flex;
+        justify-content: center;
+        gap: $spacing-md;
+        margin-bottom: $spacing-lg;
+    }
 
     svg {
-        width: 1.1em !important;
-        height: 1.1em !important;
-        margin-right: 10px;
+        width: 1.3em !important;
+        height: 1.3em !important;
+        margin-right: $spacing-sm;
+        color: $purple-primary;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: $purple-light;
+        }
     }
 
     p {
-        font-size: 0.8em;
+        font-size: 0.9em;
+        opacity: 0.8;
+    }
+
+    @include tablet {
+        padding: $spacing-xl $container-padding-tablet;
+
+        svg {
+            width: 1.5em !important;
+            height: 1.5em !important;
+        }
+    }
+
+    @include mobile {
+        padding: $spacing-lg $container-padding-mobile;
+
+        div {
+            gap: $spacing-lg;
+        }
+
+        svg {
+            width: 1.6em !important;
+            height: 1.6em !important;
+        }
+
+        p {
+            font-size: 0.85em;
+        }
+    }
+
+    @include mobile-xs {
+        padding: $spacing-md $container-padding-mobile;
+
+        svg {
+            width: 1.4em !important;
+            height: 1.4em !important;
+        }
+
+        p {
+            font-size: 0.8em;
+        }
     }
 }

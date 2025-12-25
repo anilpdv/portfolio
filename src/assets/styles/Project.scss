@@ -1,125 +1,178 @@
+@import './variables';
+
 .projects-container {
     display: flex;
     flex-direction: column;
-    padding: 5% 10%;
+    padding: 5% $container-padding-desktop;
     text-align: left;
+
+    h1 {
+        @include mobile {
+            font-size: 1.8em;
+        }
+
+        @include mobile-xs {
+            font-size: 1.5em;
+        }
+    }
+
+    @include tablet {
+        padding: 5% $container-padding-tablet;
+    }
+
+    @include mobile {
+        padding: 5% $container-padding-mobile;
+    }
 }
-  
+
 .projects-container .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 50px;
-}
-  
-.projects-container .projects-grid .project {
-    text-align: left;
-    padding: 30px;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 2px solid rgba(80, 0, 202, 0.3);
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
+    grid-gap: $spacing-xxl;
+
+    @include desktop-sm {
+        grid-gap: $spacing-xl;
+    }
+
+    @include tablet {
+        grid-template-columns: 1fr;
+        grid-gap: $spacing-lg;
+    }
 }
 
-.projects-container .projects-grid .project:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 40px rgba(80, 0, 202, 0.3);
-    border-color: rgba(80, 0, 202, 0.6);
-    background: rgba(80, 0, 202, 0.08);
+.projects-container .projects-grid .project {
+    text-align: left;
+    padding: $spacing-xl;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid $purple-secondary-30;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+
+    h2 {
+        margin-top: $spacing-sm;
+        margin-bottom: $spacing-md;
+
+        @include mobile {
+            font-size: 1.3em;
+        }
+    }
+
+    p {
+        @include mobile {
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+    }
+
+    @include mobile {
+        padding: $spacing-lg;
+    }
+
+    @include mobile-xs {
+        padding: $spacing-md;
+    }
+
+    &:hover {
+        transform: translateY(-5px);
+        @include purple-box-shadow-lg;
+        border-color: $purple-secondary-60;
+        background: $purple-secondary-08;
+    }
 }
 
 .project-icon-wrapper {
-    margin-bottom: 20px;
-    padding: 15px;
-    background: linear-gradient(135deg, rgba(80, 0, 202, 0.2) 0%, rgba(80, 0, 202, 0.1) 100%);
+    margin-bottom: $spacing-lg;
+    padding: $spacing-md;
+    background: linear-gradient(135deg, $purple-secondary-20 0%, $purple-secondary-10 100%);
     border-radius: 10px;
     width: fit-content;
+
+    @include mobile {
+        padding: 12px;
+        margin-bottom: $spacing-md;
+    }
 }
 
 .project-icon {
-    color: #7c3aed;
+    color: $purple-primary;
     opacity: 1;
-    filter: drop-shadow(0 0 8px rgba(124, 58, 237, 0.5));
-}
-  
-.project h2 {
-    margin-top: 10px;
-    margin-bottom: 15px;
+    filter: drop-shadow(0 0 8px $purple-primary-50);
+
+    @include mobile {
+        font-size: 2em !important;
+    }
 }
 
 .project h2:hover {
     text-decoration: underline;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
 }
 
 .project-badges {
     display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-md;
     flex-wrap: wrap;
-}
 
-.project-badges .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 14px;
-    background: linear-gradient(135deg, rgba(124, 58, 237, 0.25) 0%, rgba(80, 0, 202, 0.25) 100%);
-    border: 1px solid rgba(124, 58, 237, 0.4);
-    border-radius: 20px;
-    font-size: 0.85rem;
-    color: #c4b5fd;
-    font-weight: 600;
+    .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 14px;
+        background: linear-gradient(135deg, $purple-primary-25 0%, $purple-secondary-25 100%);
+        border: 1px solid $purple-primary-40;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        color: $purple-accent;
+        font-weight: 600;
+
+        @include mobile {
+            padding: 5px 12px;
+            font-size: 0.8rem;
+        }
+    }
 }
 
 .project-links {
     display: flex;
-    gap: 15px;
-    margin-top: 15px;
+    gap: $spacing-md;
+    margin-top: $spacing-md;
+    flex-wrap: wrap;
+
+    a {
+        padding: 10px 20px;
+        @include purple-gradient;
+        color: $text-white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: 1px solid $purple-primary-50;
+
+        @include mobile {
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            flex: 1;
+            text-align: center;
+            min-width: 100px;
+        }
+
+        &:hover {
+            @include purple-gradient-hover;
+            transform: translateY(-2px);
+            @include purple-box-shadow;
+        }
+    }
 }
 
-.project-links a {
-    padding: 10px 20px;
-    background: linear-gradient(135deg, #7c3aed 0%, #5000ca 100%);
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(124, 58, 237, 0.5);
-}
-
-.project-links a:hover {
-    background: linear-gradient(135deg, #8b5cf6 0%, #6a1bd1 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(124, 58, 237, 0.4);
-}
-  
 .zoom {
     border-radius: 5px;
-    transition: transform .2s;
+    transition: transform 0.2s;
     margin: 0 auto;
-}
-  
-.zoom:hover {
-    transform: scale(1.05);
-}
 
-@media screen {
-    @media (max-width: 700px) {
-        .projects-container {
-            display: block;
-            padding-left: 5%;
-            padding-right: 5%;
-        }
-  
-        .projects-container .projects-grid {
-            display: block;
-        }
-      
-        .projects-container .projects-grid .project {
-            padding-bottom: 5%;
-        }
+    &:hover {
+        transform: scale(1.05);
     }
 }

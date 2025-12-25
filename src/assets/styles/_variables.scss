@@ -1,0 +1,116 @@
+// ===========================================
+// BREAKPOINTS
+// ===========================================
+$bp-xs: 320px;    // Very small devices
+$bp-sm: 480px;    // Mobile
+$bp-md: 640px;    // Large mobile
+$bp-lg: 768px;    // Tablet
+$bp-xl: 1200px;   // Small desktop / large tablet
+$bp-xxl: 1170px;  // Desktop (for timeline component)
+
+// ===========================================
+// PURPLE THEME COLORS
+// ===========================================
+$purple-primary: #7c3aed;
+$purple-light: #8b5cf6;
+$purple-secondary: #5000ca;
+$purple-dark: #6a1bd1;
+$purple-accent: #c4b5fd;
+
+// RGBA variations for transparency effects
+$purple-primary-50: rgba(124, 58, 237, 0.5);
+$purple-primary-40: rgba(124, 58, 237, 0.4);
+$purple-primary-30: rgba(124, 58, 237, 0.3);
+$purple-primary-25: rgba(124, 58, 237, 0.25);
+$purple-secondary-60: rgba(80, 0, 202, 0.6);
+$purple-secondary-30: rgba(80, 0, 202, 0.3);
+$purple-secondary-25: rgba(80, 0, 202, 0.25);
+$purple-secondary-20: rgba(80, 0, 202, 0.2);
+$purple-secondary-10: rgba(80, 0, 202, 0.1);
+$purple-secondary-08: rgba(80, 0, 202, 0.08);
+
+// ===========================================
+// BACKGROUND COLORS
+// ===========================================
+$bg-dark: #0d1116;
+$bg-light: #f8f9fa;
+
+// ===========================================
+// TEXT COLORS
+// ===========================================
+$text-white: #ffffff;
+$text-dark: #0d1116;
+$text-gray: rgb(39, 40, 34);
+
+// ===========================================
+// SPACING
+// ===========================================
+$spacing-xs: 5px;
+$spacing-sm: 10px;
+$spacing-md: 15px;
+$spacing-lg: 20px;
+$spacing-xl: 30px;
+$spacing-xxl: 50px;
+
+// Container padding
+$container-padding-desktop: 10%;
+$container-padding-tablet: 5%;
+$container-padding-mobile: 3%;
+
+// ===========================================
+// RESPONSIVE MIXINS
+// ===========================================
+@mixin mobile-xs {
+  @media screen and (max-width: #{$bp-xs}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (max-width: #{$bp-sm}) {
+    @content;
+  }
+}
+
+@mixin mobile-lg {
+  @media screen and (max-width: #{$bp-md}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: #{$bp-lg}) {
+    @content;
+  }
+}
+
+@mixin desktop-sm {
+  @media screen and (max-width: #{$bp-xl}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (max-width: #{$bp-xxl}) {
+    @content;
+  }
+}
+
+// ===========================================
+// GRADIENT MIXINS
+// ===========================================
+@mixin purple-gradient {
+  background: linear-gradient(135deg, $purple-primary 0%, $purple-secondary 100%);
+}
+
+@mixin purple-gradient-hover {
+  background: linear-gradient(135deg, $purple-light 0%, $purple-dark 100%);
+}
+
+@mixin purple-box-shadow {
+  box-shadow: 0 5px 20px $purple-primary-40;
+}
+
+@mixin purple-box-shadow-lg {
+  box-shadow: 0 10px 40px $purple-secondary-30;
+}

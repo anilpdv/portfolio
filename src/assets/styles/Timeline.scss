@@ -1,38 +1,75 @@
+@import './variables';
+
 .vertical-timeline span {
-    color: white;
-    font-family: 'Courier Prime', monospace;
+    color: $text-white;
+    font-family: "Courier Prime", monospace;
 }
 
 .vertical-timeline p {
-    color: rgb(39, 40, 34);
+    color: $text-gray;
 }
 
 .vertical-timeline-element p {
-    color: rgb(39, 40, 34);
+    color: $text-gray;
+
+    @include mobile {
+        font-size: 0.95em;
+        line-height: 1.6;
+    }
 }
 
 .vertical-timeline-element h3 {
-    color: rgb(39, 40, 34);
+    color: $text-gray;
+
+    @include mobile {
+        font-size: 1.1em;
+    }
 }
 
 .vertical-timeline-element h4 {
-    color: rgb(39, 40, 34);
+    color: $text-gray;
+
+    @include mobile {
+        font-size: 0.95em;
+    }
 }
 
 .vertical-timeline-element span {
-    color: rgb(39, 40, 34);
+    color: $text-gray;
 }
 
 .vertical-timeline-element .vertical-timeline-element-date {
-    color: white;
+    color: $text-white;
 }
 
 .svg-inline--fa {
-    color: white;
+    color: $text-white;
 }
 
-@media screen and (max-width: 1170px) {
+// Timeline becomes single column at 1170px (library default)
+@include desktop {
     .vertical-timeline-element .vertical-timeline-element-date {
-        color: rgb(39, 40, 34);
+        color: $text-gray;
+    }
+}
+
+// Additional mobile adjustments
+@include mobile {
+    .vertical-timeline-element-content {
+        padding: $spacing-md !important;
+    }
+
+    .vertical-timeline-element-content h3 {
+        margin-bottom: $spacing-xs;
+    }
+
+    .vertical-timeline-element-content h4 {
+        margin-top: 0;
+    }
+}
+
+@include mobile-xs {
+    .vertical-timeline-element-content {
+        padding: $spacing-sm !important;
     }
 }

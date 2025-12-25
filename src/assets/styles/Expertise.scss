@@ -1,38 +1,93 @@
+@import './variables';
+
 .skills-container {
-    padding: 5% 10%;
+    padding: 5% $container-padding-desktop;
     display: flex;
     flex-direction: column;
     text-align: left;
 
     svg {
-        color: white;
+        color: $text-white;
+    }
+
+    h1 {
+        @include mobile {
+            font-size: 1.8em;
+        }
+
+        @include mobile-xs {
+            font-size: 1.5em;
+        }
+    }
+
+    @include tablet {
+        padding: 5% $container-padding-tablet;
+    }
+
+    @include mobile {
+        padding: 5% $container-padding-mobile;
     }
 }
-  
+
 .skills-container .skills-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 50px;
+    grid-gap: $spacing-xxl;
+
+    @include desktop-sm {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: $spacing-xl;
+    }
+
+    @include tablet {
+        grid-template-columns: 1fr;
+        grid-gap: $spacing-lg;
+    }
 }
-  
+
 .skills-container .skills-grid .skill {
     align-items: center;
     text-align: left;
+
+    h3 {
+        color: $purple-primary;
+        margin-top: $spacing-md;
+
+        @include mobile {
+            font-size: 1.1em;
+        }
+    }
+
+    p {
+        @include mobile {
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+    }
+
+    @include tablet {
+        padding-bottom: $spacing-lg;
+    }
 }
-  
+
 .chip {
-    color: rgb(39, 40, 34) !important;
-    background-color: white !important;
+    color: $text-gray !important;
+    background-color: $text-white !important;
     font-size: 0.8rem !important;
     height: 25px !important;
-  
+
     span {
-        font-family: 'Courier Prime', monospace;
-        color: rgb(39, 40, 34);
+        font-family: "Courier Prime", monospace;
+        color: $text-gray;
     }
-  
+
     svg {
         height: 15px !important;
+    }
+
+    @include mobile {
+        height: 22px !important;
+        font-size: 0.75rem !important;
     }
 }
 
@@ -41,45 +96,26 @@
     margin: 0.5;
 
     .chip-title {
-        color: white;
-        padding-right: 10px;
-    }
-}
+        color: $text-white;
+        padding-right: $spacing-sm;
 
-.flex-chips .MuiChip-root {
-    margin-right: 0.5em;
-}
-
-.flex-chips .MuiChip-outlined {
-    background-color: #e0e0e0;
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-        monospace;
-}
-
-.flex-chips .MuiChip-outlined span {
-    color: rgb(39, 40, 34);
-}
-
-@media screen {
-    @media (max-width: 768px) {
-        .skills-container {
+        @include mobile {
             display: block;
-            padding-left: 5%;
-            padding-right: 5%;
-        }
-    
-        .skills-container .skills-grid {
-            display: initial;
-        }
-        
-        .skills-container .skills-grid .skill {
-            padding-bottom: 5%;
+            padding-bottom: $spacing-xs;
         }
     }
 
-    @media (max-width: 567px) {
-        .skills {
-            font-size: 12px;
-        }
+    .MuiChip-root {
+        margin-right: 0.5em;
+        margin-bottom: 0.3em;
+    }
+
+    .MuiChip-outlined {
+        background-color: #e0e0e0;
+        font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+    }
+
+    .MuiChip-outlined span {
+        color: $text-gray;
     }
 }

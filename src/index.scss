@@ -1,3 +1,9 @@
+@import './assets/styles/variables';
+
+:root {
+  --color-secondary: #{$purple-secondary};
+}
+
 html, body, #root {
   width: 100%;
   height: 100%;
@@ -13,6 +19,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 1.1rem !important;
+
+  @include mobile {
+    font-size: 1rem !important;
+  }
 }
 
 code {
@@ -25,7 +35,7 @@ code {
   height: 100%;
   overflow: hidden;
   position: relative;
-  background-color: #0d1116;
+  background-color: $bg-dark;
 }
 
 .scrollable-content {
@@ -33,9 +43,8 @@ code {
   top: 0;
   bottom: 0;
   left: 0;
-  right: -20px; /* Increased for Safari compatibility */
+  right: -20px;
   overflow-y: scroll;
-  /* Hide scrollbar for all browsers including Safari */
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -51,24 +60,29 @@ a {
 }
 
 a:hover {
-  color: #5000ca;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+  color: $purple-secondary;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
 }
 
 p, a, h1, h2, h3, h4, h5, label, button {
-  color: white;
+  color: $text-white;
   font-family: "Lato", sans-serif;
 }
 
 .navigation-bar {
   justify-content: space-between;
-  background-color: #0d1116;
+  background-color: $bg-dark;
 
   button {
     font-size: 1.1rem;
     font-family: "Lato", sans-serif;
     text-transform: initial;
     padding: 6px 10px;
+
+    @include mobile {
+      font-size: 1rem;
+      padding: 4px 8px;
+    }
   }
 
   svg {
@@ -78,7 +92,7 @@ p, a, h1, h2, h3, h4, h5, label, button {
 
 .navigation-bar-responsive {
   span, p {
-    color: #0d1116;
+    color: $bg-dark;
     font-family: "Lato", sans-serif;
   }
 }
@@ -90,6 +104,10 @@ p, a, h1, h2, h3, h4, h5, label, button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @include mobile {
+    margin-top: 56px;
+  }
 }
 
 .header-image {
@@ -101,42 +119,72 @@ p, a, h1, h2, h3, h4, h5, label, button {
     height: 450px;
     object-fit: cover;
   }
+
+  @include tablet {
+    height: 350px;
+    img {
+      height: 350px;
+    }
+  }
+
+  @include mobile {
+    height: 280px;
+    img {
+      height: 280px;
+    }
+  }
+
+  @include mobile-xs {
+    height: 220px;
+    img {
+      height: 220px;
+    }
+  }
 }
 
 .mobile-menu-top {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: $spacing-xs;
   font-weight: bold;
 }
 
 .items-container {
-  padding: 5% 10%;
+  padding: 5% $container-padding-desktop;
   text-align: left;
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @include tablet {
+    padding: 5% $container-padding-tablet;
+  }
+
+  @include mobile {
+    padding: 5% $container-padding-mobile;
+  }
 }
 
+// Light mode styles
 .light-mode {
-  background-color: #f8f9fa;
+  background-color: $bg-light;
 
   .navigation-bar {
-    background-color: #f8f9fa;
+    background-color: $bg-light;
   }
 
   p, a, h1, h2, h3, h4, h5, label, button {
-    color: #0d1116;
+    color: $text-dark;
   }
 
   a:hover {
-    color: #5000ca;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+    color: $purple-secondary;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
   }
 
   .navigation-bar svg {
-    color: #0d1116;
+    color: $text-dark;
   }
 
   .about-section {
@@ -144,7 +192,7 @@ p, a, h1, h2, h3, h4, h5, label, button {
   }
 
   .skills-container svg {
-    color: #0d1116;
+    color: $text-dark;
   }
 
   .chip {
@@ -169,14 +217,23 @@ p, a, h1, h2, h3, h4, h5, label, button {
   }
 
   .flex-chips .chip-title {
-    color: #0d1116;
+    color: $text-dark;
   }
-}
 
-@media screen {
-  @media (max-width: 768px) {
-    .items-container {
-      padding: 5% 5%;
+  // Ensure purple accents are visible in light mode
+  .contact-email a {
+    color: $purple-secondary;
+
+    &:hover {
+      color: $purple-primary;
+    }
+  }
+
+  footer svg {
+    color: $purple-secondary;
+
+    &:hover {
+      color: $purple-primary;
     }
   }
 }
