@@ -33,8 +33,17 @@ code {
   top: 0;
   bottom: 0;
   left: 0;
-  right: -17px;
+  right: -20px; /* Increased for Safari compatibility */
   overflow-y: scroll;
+  /* Hide scrollbar for all browsers including Safari */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollable-content::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 a {

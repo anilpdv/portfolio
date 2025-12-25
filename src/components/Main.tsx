@@ -16,8 +16,12 @@ function Main() {
             <a href="https://github.com/anilpdv" target="_blank" rel="noreferrer"><GitHubIcon/></a>
             <a href="https://www.linkedin.com/in/anilpdv" target="_blank" rel="noreferrer"><LinkedInIcon/></a>
           </div>
-          <h1>Anil Palli</h1>
-          <p>Full Stack Developer</p>
+          <h1>Hi, I am Anil Palli</h1>
+          <p className="bio-text">
+            I am a full stack developer with 6 years of experience working on various projects.
+            I love creating applications, solving problems, and contributing to enhance the
+            experience of every journey I embark on.
+          </p>
 
           <div className="mobile_social_icons">
             <a href="https://github.com/anilpdv" target="_blank" rel="noreferrer"><GitHubIcon/></a>
